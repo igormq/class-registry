@@ -1,13 +1,12 @@
 # coding=utf-8
-from __future__ import absolute_import, division, print_function, \
-    unicode_literals
+from __future__ import (absolute_import, division, print_function, unicode_literals)
 
 from typing import Dict, Optional, Text
 
 from pkg_resources import iter_entry_points
 from six import iteritems
 
-from class_registry import BaseRegistry
+from klass_registry.registry import BaseRegistry
 
 __all__ = [
     'EntryPointClassRegistry',
@@ -18,6 +17,7 @@ class EntryPointClassRegistry(BaseRegistry):
     """
     A class registry that loads classes using setuptools entry points.
     """
+
     def __init__(self, group, attr_name=None):
         # type: (Text, Optional[Text]) -> None
         """
@@ -35,10 +35,10 @@ class EntryPointClassRegistry(BaseRegistry):
         """
         super(EntryPointClassRegistry, self).__init__()
 
-        self.attr_name  = attr_name
-        self.group      = group
+        self.attr_name = attr_name
+        self.group = group
 
-        self._cache = None # type: Optional[Dict[Text, type]]
+        self._cache = None  # type: Optional[Dict[Text, type]]
         """
         Caches registered classes locally, so that we don't have to
         keep iterating over entry points.
@@ -54,8 +54,8 @@ class EntryPointClassRegistry(BaseRegistry):
 
     def __repr__(self):
         return '{type}(group={group!r})'.format(
-            group   = self.group,
-            type    = type(self).__name__,
+            group=self.group,
+            type=type(self).__name__,
         )
 
     def get(self, key, *args, **kwargs):

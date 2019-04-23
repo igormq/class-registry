@@ -1,13 +1,12 @@
 # coding=utf-8
-from __future__ import absolute_import, division, print_function, \
-    unicode_literals
+from __future__ import (absolute_import, division, print_function, unicode_literals)
 
 from collections import defaultdict
 from typing import Any, Dict, Generator, Hashable
 
 from six import iterkeys
 
-from class_registry import ClassRegistry
+from klass_registry.registry import ClassRegistry
 
 __all__ = [
     'ClassRegistryInstanceCache',
@@ -27,10 +26,11 @@ class ClassRegistryInstanceCache(object):
     any classes that are registered afterward are accessible to
     both the ClassRegistry and the ClassRegistryInstanceCache.
     """
-    def __init__(self, class_registry, *args, **kwargs):
+
+    def __init__(self, klass_registry, *args, **kwargs):
         # type: (ClassRegistry, *Any, **Any) -> None
         """
-        :param class_registry:
+        :param klass_registry:
             The wrapped ClassRegistry.
 
         :param args:
@@ -43,13 +43,13 @@ class ClassRegistryInstanceCache(object):
         """
         super(ClassRegistryInstanceCache, self).__init__()
 
-        self._registry  = class_registry
-        self._cache     = {}
+        self._registry = klass_registry
+        self._cache = {}
 
-        self._key_map = defaultdict(list) # type: Dict[Hashable, list]
+        self._key_map = defaultdict(list)  # type: Dict[Hashable, list]
 
-        self._template_args     = args
-        self._template_kwargs   = kwargs
+        self._template_args = args
+        self._template_kwargs = kwargs
 
     def __getitem__(self, key):
         """
