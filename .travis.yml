@@ -5,6 +5,7 @@ branches:
   only:
   - master
   - develop
+  - /^\d+\.\d+(\.\d+)?(-\S*)?$/
 python:
   - '2.7'
   - '3.5'
