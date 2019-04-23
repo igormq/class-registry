@@ -1,23 +1,22 @@
 dist: xenial
 language: python
 python:
-- '2.7'
-- '3.5'
-- '3.6'
-- '3.7'
+  - '2.7'
+  - '3.5'
+  - '3.6'
+  - '3.7'
 install:
-- pip install .
-- pip install docutils pygments
+  - pip install .
+  - pip install docutils pygments
 script:
-- python setup.py check --strict --metadata --restructuredtext
-- python setup.py test
+  - python setup.py check --strict --metadata --restructuredtext
+  - python setup.py test
 deploy:
-  matrix:
-  - true:
+  - on:
       python: '3.7'
       tags: true
     provider: pypi
     distributions: bdist_wheel sdist
     user: igormq
     password:
-      secure: f/jK6uKKLYLJF/wkqedvSsqChFhzlLxdM2JDUvypAX37HXncNRBFsulaFKO5fkIFkboOwJfOreCZgCBNqdXN0cZ6DiUKPKZ1i/K7Id3S7icTpkuXKSmqXKDF1k74Cs3GA5qJOhPozw1vwMYGfut9Idoexi1xJPR9R9k1VkJjfbxyE2zxGsYWQ80+z1LNbgn3tg5Bk3nm6cl1tH6L7kctVuofNFfePBdClEWhQQ75/+dw6cIPC6ygprVJn8xd/2N+6cFtxEFjEolIewRB0zcsukjh4469KwReurPFfIoBk6Qg/LU/ytC/SvA9kpGUJLMQvKw50lsAFyeVilVOfSuFOsa+zcfAGwF6q6+qXtLmiQdFQTcelnjPXJDxDgu2E1OYydiORy6Nge+nej3hFuFdv5dF0pRyOfXnhyrQK0gDBql1if1c/8eOXxOk4t0ZOqRFfu/xw23j6Oka6TU38wfwDICKTxKwQTYOtxeJ/yUsE6QO21PZ+iRFjHpP+iTbdihNuZtUVWjoJuDuPbJNWVS+1pQQdf8yGBiBy1cHlyf1qVjVD5Z5NHghoMsm3mr+rfDKiSTLHstAh+/vHJd3ssMMNiD4sImZIgBRBxvbdOzUGCUToOANOGSBGiZb5bsz0Gl/kJob8D8omqbf9hVMh1x/ScnMsxfky3fSxZAMOK7OjeU=
+      secure: uU2KVLg3HdT+0RBPl10XsZBrDkMgU+ZCcjh1EXBXf5bgYWA6ve7R13Q++aSMgZasVG4qlhg++QI7n/Dz6/AGcIzon0dBB7KtRDnW1+mRBmdfXCDo1P7spV+qCIoLkHRo51rMfRc1zIC2Wy7p9eljcdM3UUcS02lN8hCZb5pmFiASRtaK5MFknLTiwkFBleXOJmtLLZjNQEFFI68833p3KAABEG6lPVUHdClpgA0vq4VLlbzHXToqIrPILJIMGHjgtgXt+OaPRVpO5N5jhvKinXiDx3rwiDTemLGTrLBov/fNgxvG3dC+idWPbS0M7OFDZ+eq/VEzpR8rOP/JPMwdh7kjAM/ryyANXQ+XuWE7pNuH6qmwEy/BSJJh2Ezjy9u1/u7YzStdWsYZPAGU7OlqtBMwBCJDVlLrcgIqRqY2Yay2sUDiCOZIvOwnGO82HAR+oGzMQ4WTOhRWuX65mO56xbfOM09pU3tRwvT8yr03JX4+RPIf22ARsctuz9AnHv5T2yUszuWMil3hZ873GFJdsw/vb4zG9/Q4wlScAUfMg4Iugq89orhlquAlNYFyfU/ofVieAmYkJZS7GSYPwab6myChJxZgdlabFiAwyJG+RPuMD7T8W/S2yStSdBLTlG8HeLeWhnAPimYYX7MkYfIGbWYluc0oT5gdrxi6AW/8WuA=
