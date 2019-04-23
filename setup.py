@@ -21,7 +21,7 @@ setup(
     name='klass-registry',
     description='Factory+Registry pattern for Python classes.',
     url='https://klass-registry.readthedocs.io/',
-    version='2.2.1',
+    version='2.2.2',
     packages=['klass_registry'],
     long_description=long_description,
     install_requires=[
